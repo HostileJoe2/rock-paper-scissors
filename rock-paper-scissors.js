@@ -1,15 +1,12 @@
 
-let computerChoice = getComputerChoice()
-let humanChoice = getHumanChoice()
+
 let humanScore = 0
 let computerScore = 0
 
 
-playRound(computerChoice, humanChoice);
+playGame(6)
 
-console.log(humanChoice)
-console.log("You: " + humanScore);
-console.log("Computer: " + computerScore);
+
 
 //the computer gets it's choice from a random number between 1 and 100
 function getComputerChoice () {
@@ -35,8 +32,8 @@ function getHumanChoice () {
 
 //this is the logic for how games are scored
 function playRound (computerChoice, humanChoice) {
-    mine = computerChoice.toLowerCase();
-    theirs = humanChoice.toLowerCase();
+    mine = humanChoice.toLowerCase();
+    theirs = computerChoice.toLowerCase();
 
     if (mine === 'rock' && theirs === 'scissors') {
         console.log("You win! Rock Beats Scissors")
@@ -50,10 +47,22 @@ function playRound (computerChoice, humanChoice) {
     } else if (mine === theirs) {
         console.log ("It's a draw!")
     } else {
-        console.log("You Loose! " + theirs +"beats " + mine)
+        console.log("You Loose! " + theirs +" beats " + mine)
         computerScore += 1
     }
 }
 
+function playGame(timesToPlay) {
+    for (i = 1; i < timesToPlay; i++) {
+        let computerChoice = getComputerChoice()
+        let humanChoice = getHumanChoice()
+
+        playRound(computerChoice, humanChoice);
+
+        console.log("You: " + humanScore);
+        console.log("Computer: " + computerScore);
+
+    }
+}
 
 

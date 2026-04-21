@@ -1,11 +1,11 @@
-let humanScore = 0
-let computerScore = 0
+let humanScore = 0;
+let computerScore = 0;
+let humanChoice;
+let computerChoice;
 
-//the computer gets it's choice from a random number between 1 and 100
 function getComputerChoice () {
-
     let num = Math.floor(Math.random() * 100)
-    let computerChoice = "damnit"
+    computerChoice = "damnit"
 
     if (num <= 33) {
         computerChoice = "Rock"
@@ -16,10 +16,6 @@ function getComputerChoice () {
     }
     return computerChoice;    
 }
-//take the button that person clicked and play a game of rps 
-
-
-//this is the logic for how games are scored
 function playRound (computerChoice, humanChoice) {
     mine = humanChoice.toLowerCase();
     theirs = computerChoice.toLowerCase();
@@ -40,3 +36,17 @@ function playRound (computerChoice, humanChoice) {
         computerScore += 1
     }
 }
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        humanChoice = event.target.id
+        console.log(humanChoice)
+        computerChoice = getComputerChoice();
+        playRound(computerChoice, humanChoice);
+        console.log(humanScore)
+        console.log(computerScore)
+    });
+})
+

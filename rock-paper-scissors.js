@@ -1,11 +1,6 @@
 let humanScore = 0
 let computerScore = 0
 
-
-playGame(6)
-
-
-
 //the computer gets it's choice from a random number between 1 and 100
 function getComputerChoice () {
 
@@ -21,12 +16,8 @@ function getComputerChoice () {
     }
     return computerChoice;    
 }
+//take the button that person clicked and play a game of rps 
 
-//promtps the player on page load to choose between the three
-function getHumanChoice () {
-    let humanChoice = prompt("Pick Rock, Paper, or Scissors")
-    return humanChoice;
-}
 
 //this is the logic for how games are scored
 function playRound (computerChoice, humanChoice) {
@@ -49,18 +40,3 @@ function playRound (computerChoice, humanChoice) {
         computerScore += 1
     }
 }
-
-function playGame(timesToPlay) {
-    for (i = 1; i < timesToPlay; i++) {
-        let computerChoice = getComputerChoice()
-        let humanChoice = getHumanChoice()
-
-        playRound(computerChoice, humanChoice);
-
-        console.log("You: " + humanScore);
-        console.log("Computer: " + computerScore);
-
-    }
-}
-
-

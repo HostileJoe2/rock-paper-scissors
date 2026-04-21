@@ -38,15 +38,23 @@ function playRound (computerChoice, humanChoice) {
 }
 
 const buttons = document.querySelectorAll("button");
+const yourScore = document.querySelector(".yourScore");
+const compScore = document.querySelector(".compScore");
+const winner = document.querySelector(".winner");
 
 buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
-        humanChoice = event.target.id
-        console.log(humanChoice)
+        humanChoice = event.target.id;
         computerChoice = getComputerChoice();
+        if (humanScore >= 5 || computerScore >= 5) return;
         playRound(computerChoice, humanChoice);
-        console.log(humanScore)
-        console.log(computerScore)
+        yourScore.textContent = `Your score is ${humanScore}`;
+        compScore.textContent = `The Computer's score is ${computerScore}`;
+        if (humanScore >= 5 || computerScore >= 5) {
+            if (humanScore > computerScore) {
+                winner.textContent = "You Win!"
+            } else {winner.textContent = "The Computer Wins!"}
+            button.disabled = true;
+        } 
     });
-})
-
+});

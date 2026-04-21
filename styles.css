@@ -22,3 +22,12 @@ button {
 body {
     background-color: tan;
 }
+
+#game {
+    display: flex;
+    justify-content: space-around;
+}
+
+.winner{
+    text-align: center;
+}

@@ -1,5 +1,3 @@
-
-
 let humanScore = 0
 let computerScore = 0
 
@@ -47,7 +45,7 @@ function playRound (computerChoice, humanChoice) {
     } else if (mine === theirs) {
         console.log ("It's a draw!")
     } else {
-        console.log("You Loose! " + theirs +" beats " + mine)
+        console.log("You Lose! " + theirs +" beats " + mine)
         computerScore += 1
     }
 }
